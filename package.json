@@ -1,39 +1,40 @@
 {
-  "name": "template",
-  "private": true,
+  "name": "useplug",
+  "private": false,
   "version": "1.0.0",
-  "description": "",
+  "description": "Plug Provider and Hook for Reactjs apps",
   "main": "lib/index.js",
-  "bin": "lib/bin.js",
   "scripts": {
     "setup": "./init-template.js",
     "pre-commit": "(git-branch-is --not main || (set -u && echo $ALLOWMAIN)) && yarn test",
     "test": "tsc --noEmit",
     "build": "tsc && chmod +x lib/bin.js && yarn pack -f package.tgz",
-    "docs:bin": "mkdir docstemp ; (commanderdoc markdown lib/bin.js -o docstemp/__cli.md --cli-name \"npx `jq -r .name package.json`\") ; ",
     "docs:lib": "typedoc --theme markdown --readme none --includeVersion --out docstemp src/ && rm README.md ; mv docstemp/README.md docstemp/_library.md",
     "docs:compile": "mkdir docstemp ; cp TOP.md docstemp/README.md ; concat-md docstemp > README.md && rm -rf docstemp",
-    "docs": "rm -rf docstemp && yarn docs:lib && yarn docs:bin && yarn docs:compile",
+    "docs": "rm -rf docstemp && yarn docs:lib && yarn docs:compile",
     "prepublishOnly": "yarn build && yarn docs && git commit README.md -m \"docs: updating docs\" && git push",
     "watch": "livelink watch",
     "prepare": "install-peers"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhdeck/base.git"
+    "url": "https://github.com/rhdeck/useplug.git"
   },
-  "author": "Ray Deck",
+  "author": [
+    "Ray Deck",
+    "Akshay Rakheja"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rhdeck/base/issues"
+    "url": "https:/github.com/rhdeck/useplug/issues"
   },
-  "homepage": "https://github.com/rhdeck/base#readme",
+  "homepage": "https://github.com/rhdeck/useplug#README",
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "@raydeck/livelink": "^1.5.2",
-    "@types/inquirer": "^7.3.1",
     "@types/node": "^14.14.17",
+    "@types/react": "^18.0.12",
     "@types/validate-npm-package-name": "^3.0.2",
     "commanderdoc": "^0.1.11",
     "concat-md": "^0.3.5",
@@ -50,8 +51,7 @@
     "lib"
   ],
   "dependencies": {
-    "commander": "^6.2.1",
-    "inquirer": "^7.3.3"
+    "@stitches/react": "^1.2.8"
   },
   "liveLink": {
     "ignoreMasks": [
@@ -61,5 +61,11 @@
       "docs/**",
       "docstemp/**"
     ]
+  },
+  "peerDependencies": {
+    "@dfinity/agent": "^0.11.3",
+    "@dfinity/candid": "^0.11.3",
+    "@dfinity/principal": "^0.11.3",
+    "react": "^18.1.0"
   }
 }
