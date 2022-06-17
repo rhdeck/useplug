@@ -1,31 +1,100 @@
-Template for making easy-to-work-with tempates
+# usePlug - React Wrapper for Plug Wallet
 
-# ts-template
+Plug makes it easy for browser users to interact with ICP on an economic basis. usePlug makes it easy for React app developers to integrate usePlug for authentication and working with actors. 
+
+**Typescript Native** Implementation - get all your sweet autocomplete. 
+
+## Installation
+**Prequisite: A React app (often built with `npx create-react-app`);
+```bash
+yarn add @dfinity/agent @dfinity/candid @dfinity/principal # Dependencies
+yarn add @raydeck/useplug # This package
+```
 
 ## Usage
+### App.tsx
+Add The plug provider to the top level of your application that you want authenticated. 
 
-1. [Copy this template](https://github.com/rhdeck/ts-template/)
-2. Clone to a local directory (eg `git clone https://github.com/me/my-repository/ && cd my-repository`)
-3. Run `yarn && yarn setup` to initialize the node package (Get rid of template strings - and this readme!)
-4. Happy Coding!
+**Remember to set the whitelist** Plug will only let you interact with canisters on the whitelist you provided to the plugprovider
 
-## Useful Scripts
+## PlugProvider 
+PlugProvider wraps your app to manage communication with the plug wallet. To instantiate, provide props with the canisters and network with which you want to communicate
 
-1. `yarn build` will build using typescript pre-configured to node-compatible defaults
-2. `yarn docs` will auto-generate a README.md that starts with TOP.md, then adds CLI documentation (via [commanderdoc](https://npmjs.com/package/commanderdoc)) for any tool you have set up, and then library documentation after that.
-3. `yarn test` is pre-configured to test for typescript errors
-4. `yarn watch` will watch the codebase for changes and rebuild (using [livelink](https://npmjs.com/package/@raydeck/livelink))
+### Props
+  * **whitelist?: string[];** Which canisterids - if any - are allowed to interact using the plug wallet ID
+  * **host?: string;** Which server to use for authentication. By default uses mainnet. (setting explicitly doesn't seem to work as it should for local replicas)
+  * **timeout?: number;** How long (in ms) to wait for communications from the IC network
+ 
+  *Note:* While whitelist is optional because of use cases where you are just trading ICP using plug, it's a code smell to leave it undefined in most cases. The others are fine to leave alone.
+### Example
+```tsx
+import {PlugProvider, Authenticated, Unauthenticated, LoggedOut } from '@raydeck/useplug'
+export const App = ()=>{
+    return (
+        <PlugProvider whitelist={whitelist}>
+            {/* Providers want a single node underneath, which we wrangle with a fragment */}
+            <Fragment> 
+                {/* Wrapper  for tree in authenticated state */}
+                <Authenticated> 
+                    {/* Your app, which can use usePlug */}
+                    <Main />
+                </Authenticated>
+                {/* Wrapper for for unauthenticated state */}
+                <Unauthenticated> 
+                    {/* App in logged out state - we have a pre-built login screen for you */}
+                    <LoggedOut /> 
+                </Unauthenticated>
+            </Fragment>
+        </PlugProvider>
+    );
+}
+```
+## usePlug() => PlugContext
+Access the context of your instantiated Plug connection from any component beneath your PlugProvider. 
 
-## Git code protections
+The shape of the plug Provider context is:
+  * `authenticated`: Whether the plug wallet is in an authenticated state (boolean)
+  * `principal`: Principal authenticated with the plug wallet (Principal or undefined)
+  * `agent`: Plug-mediated agent for talking with IC canisters (HttpAgent)
+  * `login`: Trigger plug wallet interactive authentication (()=>void)
+  * `logout` Unauthenticate from plug wallet (presently just reloads the window, since plug doesn't maintain auth across reloads) (()=>void)
+  * `createActor`: Pass-through to the plug wallet createActor function
+  * `requestBalance`:Pass-through to the plug wallet requestBalance function
+  * `requestTransfer`:Pass-through to the plug wallet requestTransfer function
+  * `batchTransactions`:Pass-through to the plug wallet batchTransactions function
 
-1. `git commit` will be blocked on the `main` branch unless you set the environment variable `ALLOWMAIN=1` Branch commits and PRs are thus encouraged
-2. `git commit` also tests messages for meeting the commitline standard conventions.
-3. `git commit` blocks pushes that do not pass `yarn test` (as a base case, they must pass typescript compilation)
-4. `npm publish` will always rebuild the code, the documentation, and push those changes back to the repository.
-5. `npm publish` will only publish the lib and src directories - any others are no
+### Example - Authenticated Path
+```ts
+import { usePlug, useActor } from '@raydeck/useplug'
+import { _SERVICE} from '../../src/declarations/mycanister/mycanister.did';
+import {idlFactory} from '../../src/declarations/mycanister'
 
-## A note on "main"
+const canisterid = process.env.MYCANISTER_CANISTER_ID;
+export const Main = ()=>{
+    const {
+        principal, 
+        logout, /* attach to a logout button*/
+        createActor, /* could use, but useActor is easier (below) */
+        requestBalance,
+        requestTransfer,
+        batchTransactions,
+    } = usePlug();
+}
+```
+## useActor<ServiceType>(id: String, factory: InterfaceFactory) => ActorSubclass<ServiceType> | undefined
+This one is cool. useActor wraps the concerns of instantiating an actor to communicate with your canister mediated by Plug. Plus, it keeps your Typescript types auto-generated by `dfx generate` so all the auto-complete stays with you. 
 
-I made a deliberate choice to change the primary branch from `master` to `main` for reasons that are obvious to some. This repository endeavors to make that just automatic.
+### Example
+```tsx
+import { useActor } from "@raydeck/useplug"
+import { _SERVICE} from '../../src/declarations/mycanister/mycanister.did';
+import {idlFactory} from '../../src/declarations/mycanister'
 
-PRs and feedback welcome via GitHub issues.
+const useMyCanister = ()=>{
+    return useActor<_SERVICE>(canisterId, idlFactory);
+}
+
+const MyComponent = ()=>{
+    const myCanister = useMyCanister()
+}
+```
