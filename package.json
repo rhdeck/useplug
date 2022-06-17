@@ -1,5 +1,5 @@
 {
-  "name": "useplug",
+  "name": "@raydeck/useplug",
   "private": false,
   "version": "1.0.0",
   "description": "Plug Provider and Hook for Reactjs apps",
@@ -8,7 +8,7 @@
     "setup": "./init-template.js",
     "pre-commit": "(git-branch-is --not main || (set -u && echo $ALLOWMAIN)) && yarn test",
     "test": "tsc --noEmit",
-    "build": "tsc && chmod +x lib/bin.js && yarn pack -f package.tgz",
+    "build": "tsc && cp -r src/assets lib/ && yarn pack -f package.tgz",
     "docs:lib": "typedoc --theme markdown --readme none --includeVersion --out docstemp src/ && rm README.md ; mv docstemp/README.md docstemp/_library.md",
     "docs:compile": "mkdir docstemp ; cp TOP.md docstemp/README.md ; concat-md docstemp > README.md && rm -rf docstemp",
     "docs": "rm -rf docstemp && yarn docs:lib && yarn docs:compile",
