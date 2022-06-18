@@ -109,9 +109,9 @@ const MyComponent = ()=>{
 
 <a name="_librarymd"></a>
 
-@raydeck/useplug - v1.0.0
+@raydeck/useplug - v1.0.2
 
-# @raydeck/useplug - v1.0.0
+# @raydeck/useplug - v1.0.2
 
 ## Table of contents
 
@@ -160,7 +160,7 @@ const MyComponent = ()=>{
 
 #### Defined in
 
-[PlugProvider.tsx:26](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L26)
+[PlugProvider.tsx:26](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L26)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:58](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L58)
+[PlugProvider.tsx:58](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L58)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:47](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L47)
+[PlugProvider.tsx:47](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L47)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:22](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L22)
+[PlugProvider.tsx:22](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L22)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:46](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L46)
+[PlugProvider.tsx:46](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L46)
 
 ___
 
@@ -230,7 +230,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:59](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L59)
+[PlugProvider.tsx:59](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L59)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:21](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L21)
+[PlugProvider.tsx:21](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L21)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:48](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L48)
+[PlugProvider.tsx:48](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L48)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:16](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L16)
+[PlugProvider.tsx:16](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L16)
 
 ___
 
@@ -298,7 +298,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:33](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L33)
+[PlugProvider.tsx:33](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L33)
 
 ___
 
@@ -314,7 +314,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:45](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L45)
+[PlugProvider.tsx:45](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L45)
 
 ## Variables
 
@@ -324,7 +324,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:175](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L175)
+[PlugProvider.tsx:175](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L175)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:106](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L106)
+[PlugProvider.tsx:106](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L106)
 
 ___
 
@@ -344,7 +344,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:181](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L181)
+[PlugProvider.tsx:181](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L181)
 
 ___
 
@@ -354,7 +354,7 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:87](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L87)
+[PlugProvider.tsx:87](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L87)
 
 ## Functions
 
@@ -376,7 +376,7 @@ ___
 
 #### Defined in
 
-[PlugButton.tsx:53](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugButton.tsx#L53)
+[PlugButton.tsx:53](https://github.com/rhdeck/useplug/blob/000f118/src/PlugButton.tsx#L53)
 
 ___
 
@@ -403,7 +403,7 @@ ___
 
 #### Defined in
 
-[useActor.ts:6](https://github.com/rhdeck/useplug/blob/a3acf83/src/useActor.ts#L6)
+[useActor.ts:6](https://github.com/rhdeck/useplug/blob/000f118/src/useActor.ts#L6)
 
 ___
 
@@ -430,4 +430,4 @@ ___
 
 #### Defined in
 
-[PlugProvider.tsx:169](https://github.com/rhdeck/useplug/blob/a3acf83/src/PlugProvider.tsx#L169)
+[PlugProvider.tsx:169](https://github.com/rhdeck/useplug/blob/000f118/src/PlugProvider.tsx#L169)
