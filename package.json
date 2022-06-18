@@ -1,7 +1,7 @@
 {
   "name": "@raydeck/useplug",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Plug Provider and Hook for Reactjs apps",
   "main": "lib/index.js",
   "scripts": {
@@ -20,9 +20,15 @@
     "type": "git",
     "url": "https://github.com/rhdeck/useplug.git"
   },
-  "author": [
-    "Ray Deck",
-    "Akshay Rakheja"
+  "contributors": [
+    {
+      "name": "Ray Deck",
+      "url": "https://github.com/rhdeck"
+    },
+    {
+      "name": "Akshay Rakheja",
+      "url": "https://github.com/akshay-rakheja"
+    }
   ],
   "license": "MIT",
   "bugs": {
