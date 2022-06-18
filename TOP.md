@@ -1,8 +1,13 @@
 # usePlug - React Wrapper for Plug Wallet
 
-Plug makes it easy for browser users to interact with ICP on an economic basis. usePlug makes it easy for React app developers to integrate usePlug for authentication and working with actors. 
+[Plug Wallet](https://plugwallet.ooo) makes it easy for browser users to interact with ICP on an economic basis. usePlug makes it easy for React app developers to integrate usePlug for authentication and working with actors. 
 
 **Typescript Native** Implementation - get all your sweet autocomplete. 
+
+We are very grateful for the folks at the [DFINITY foundation](https://dfinity.org) for putting on the Supernova Hackathon when we created this tool. And our thanks to [Psychedelic](https://psychedelic.ooo) for making Plug Wallet and open-sourcing their work so we could make it easy for others. 
+
+## License
+[MIT License - use, share and enjoy!](./LICENSE.md)
 
 ## Installation
 **Prequisite: A React app (often built with `npx create-react-app`);
