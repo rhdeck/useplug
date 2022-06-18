@@ -117,13 +117,11 @@ export const PlugProvider: FC<{
   timeout = 120000,
 }) => {
   const [authenticated, setAuthenticated] = useState(false);
-  console.log("I am authenticated maybe", authenticated);
   const [principal, setPrincipal] = useState<Principal | null>(null);
 
   const login = useCallback(async () => {
     try {
       if (plug) {
-        console.log("I am authenticating using the host of ", host);
         const publicKey = await plug.requestConnect({
           whitelist,
           host,
@@ -136,12 +134,11 @@ export const PlugProvider: FC<{
         }
       }
     } catch (e) {
-      console.log("Hi there", e);
+      setAuthenticated(false);
     }
   }, [host, whitelist, timeout]);
 
   const logout = useCallback(() => {
-    console.log("I ran logout");
     window.location.reload();
   }, []);
 
